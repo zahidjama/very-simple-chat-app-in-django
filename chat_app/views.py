@@ -6,6 +6,11 @@ from django.contrib.auth.decorators import login_required
 from .models import Message
 # Create your view here.
 
+@login_required(login_url="login")
+def logoutFunc(request):
+    logout(request)
+    return redirect("")
+
 
 def index(request):
     if request.user.is_authenticated:

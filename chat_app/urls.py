@@ -5,5 +5,6 @@ urlpatterns=[
     path("login", views.login_user, name="login"),
     path("home", views.home_page, name="home"),
     path("chat", views.chat, name="chat"),
-    path("", views.index, name="index")
+    path("", views.index, name="index"),
+    path("logout", views.logoutFunc, name="logout")
 ]

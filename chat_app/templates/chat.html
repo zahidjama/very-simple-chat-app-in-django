@@ -47,7 +47,10 @@
     </head>
     <body>
         <h2 align="center">Chatty</h2>
-        <center><a href="chat">REFRESH</a></center>
+        <center>
+            <a href="chat">REFRESH</a>
+            <a href="/logout">Logout</a>
+        </center>
         <div class="main_div">
             {%for msg in messages%}
             {%if msg.sender.email != usr.email%}
