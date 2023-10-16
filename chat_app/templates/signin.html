@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+    <head>
+        <title>Chatty</title>
+        <style>
+            body{
+                background-color: whitesmoke;
+            }
+        </style>
+    </head>
+    <body>
+        <h2 align="center">Chatty<br><i>Signin-Page</i></h2>
+        <form method="post">
+            {%csrf_token%}
+            <table>
+                {{form}}
+            </table>
+            <input type="submit">
+            <p>If you already have an account <a href="login">Click Here</a> to Login</p>
+        </form>
+    </body>
+</html>

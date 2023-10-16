@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+    <head>
+        <title>Chatty</title>
+        <style>
+            body{
+                background-color: lightgray;
+            }
+
+            .main_div{
+                width: 55%;
+                height: 420px;
+                border: 4px solid lightcoral;
+                border-radius: 50px;
+                margin: auto;
+                background-color: whitesmoke;
+                overflow: auto;
+                padding: 10px;
+                padding-left: 20px;
+
+            }
+             .recieved_msg{
+                width: 65%;
+                border: 1px solid black;
+                height: auto;
+                background-color: lightskyblue;
+                border-radius: 10px;
+                margin-top: 10px;
+            }
+            .recieved_msg #date{
+                text-align: right;
+            }
+
+
+            .send_msg{
+                width: 65%;
+                border: 1px solid black;
+                height: auto;
+                background-color: white;
+                border-radius: 10px;
+                margin-left: auto;
+                margin-top: 10px;
+            }
+            .send_msg #date{
+                text-align: right;
+            }
+        </style>
+    </head>
+    <body>
+        <h2 align="center">Chatty</h2>
+        <center><a href="chat">REFRESH</a></center>
+        <div class="main_div">
+            {%for msg in messages%}
+            {%if msg.sender.email != usr.email%}
+            <div class="recieved_msg">
+                <p id="name">{{msg.sender.name}}</p>
+                <pre>{{msg.msg}}</pre>
+                <p id="date">{{msg.date}}</p>
+            </div>
+            {%endif%}
+            {%if msg.sender.email == usr.email%}
+            <div class="send_msg">
+                <p id="name">{{msg.sender.name}}</p>
+                <pre>{{msg.msg}}</pre>
+                <p id="date">{{msg.date}}</p>
+            </div>
+            {%endif%}
+            {%endfor%}
+            
+ 
+        </div>
+        <br>
+        <center>
+        <form method="post">
+            {%csrf_token%}
+            <textarea name="msg" style="height: 78px; width: 233px;"></textarea>
+            <br>
+            <input type="submit">
+        </form>
+        </center>
+    </body>
+</html>
